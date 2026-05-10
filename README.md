@@ -182,3 +182,117 @@ Podremos ver el formato que toma y los datos que trae de la base de datos:
 ***IMPORTANTE:*** **El microservicio pedidos tampoco puede ser desactivado al momento de ocupar los microservicios que dependen de él.**
 
 ## Servicio Técnico.
+Con la siguiente entrada podremos visualizar con un GET el listado total de todos los tickets de servicio técnico ingresados y también podremos ingresar un nuevo ticket con un POST en la base de datos: 
+```
+http://localhost:8084/api/servicioTecnico
+```
+Este microservicio depende de la clase pedido, es decir, este tomará los datos del pedido realizado anteriormente.  
+Para ingresar un nuevo ticket de servicio ténico se tiene que utilizar el siguente formato POST:
+```
+{
+  "pedidoId": "1" ,
+  "falla": "Se le dañó el cable de poder del teclado.",
+  "descripcion": "Mientras se estuvo utillizando el teclado el cliente recibió un leve corte de luz que, al estar enchufado, el cable de poder del teclado comenzó a fallar.",
+  "fechaIngreso": "2026-11-11",
+  "estado": "recibido"
+}
+```
+Cabe destacar que toda la información que hay que ingresar es importante, a excepción de la fecha de ingreso, y solo hay dos estados que son "RECIBIDO" y "ENTREGADO".
+
+***IMPORTANTE:*** **El ID del ticket se genera automático por cada ticket, al momento de ingresarlo te muestra el ID asignado al mismo.**
+
+Acá podemos ver como al traer la información de la clase pedidos, esta también trae consigo la información de las clases clientes y productos. Si queres buscar un ticket de sercivio técnico por su ID, ya sea para ver sus datos (GET), actualizarlos (PUT) o borrarlo del sistema (DELETE) debemos ocupar la siguiente entrada:
+
+```
+http://localhost:8084/api/servicioTecnico/{id}
+```
+
+Podemos ver el formato que trae de la base de datos:
+```
+{
+  "id": 2,
+  "numeroSerie": "SN-YAM-P45",
+  "pedidoId": 1,
+  "nombreCliente": "Lucas Silva",
+  "nombreProducto": "Yamaha P-45",
+  "fechaIngreso": "2026-11-10",
+  "falla": "Se le dañó el cable de poder del teclado.",
+  "descripcion": "Mientras se estuvo utillizando el teclado el cliente recibió un leve corte de luz que, al estar enchufado, el cable de poder del teclado comenzó a fallar.",
+  "estado": "recibido"
+}
+```
+***EN {id} VA EL NÚMERO ID DEL TICKET DE SERVICIO TÉCNICO EN CUESTIÓN***
+***PARA ACTUALIZAR EL PEDIDO DEBE OCUPAR EN EL PUT EL MISMO FORMATO QUE SE USA AL MOMENTO DE INGRESARLO***
+
+## Devolución.
+Con la siguiente entrada podremos visualizar con un GET el listado total de todos los tickets de devolución ingresados y también podremos ingresar un nuevo ticket con un POST en la base de datos: 
+```
+http://localhost:8086/api/devoluciones
+```
+Este microservicio depende de la clase pedido, es decir, este tomará los datos del pedido realizado anteriormente.  
+Para ingresar un nuevo ticket de devolución se tiene que utilizar el siguente formato POST:
+```
+{
+  "pedidoId": "1",
+  "motivo": "El teclado no funcionó más después de un corte leve de luz",
+  "requerimiento": "CAMBIO"
+}
+```
+Acá todo lo que se pide es de campo obligatorio. Al igual que el servicio técnico, este al ir conectado con la clase pedidos, trae información de las clases clientes y productos. 
+
+***IMPORTANTE:*** **El ID del ticket se genera automático por cada ticket, al momento de ingresarlo te muestra el ID asignado al mismo.**
+
+Si queres buscar un ticket de devolución por su ID, ya sea para ver sus datos (GET) o borrarlo del sistema (DELETE) debemos ocupar la siguiente entrada:
+```
+http://localhost:8086/api/devoluciones/{id}
+```
+Así se vería la información completa al buscar:
+```
+{
+  "id": 1,
+  "pedidoId": 1,
+  "requerimiento": "CAMBIO",
+  "motivo": "El teclado no funcionó más después de un corte leve de luz",
+  "nombreCliente": "Lucas Silva",
+  "numeroSerie": "SN-YAM-P45",
+  "nombreProducto": "Yamaha P-45",
+  "precioInstrumento": 450000
+}
+```
+***EN {id} VA EL NÚMERO ID DEL TICKET DE DEVOLUCIÓN EN CUESTIÓN***
+
+## Reclamos.
+Con la siguiente entrada podremos visualizar con un GET el listado total de todos reclamos y también podremos ingresar un nuevo reclamo con un POST en la base de datos: 
+```
+http://localhost:8082/api/reclamos
+```
+Este microservicio depende de la clase cliente, es decir, este tomará los datos del cliente ingresado anteriormente.  
+Para ingresar un nuevo reclamo se tiene que utilizar el siguente formato POST:
+```
+{
+  "clienteId": "2",
+  "fechaRegistro": "2026-10-10",
+  "asunto": "Programa muy lento",
+  "descripcion": "El programa tardó mucho tiempo en realizar ingresar mi pedido."
+}
+```
+Los campos de id del cliente, asunto y descripción son obligatorios. 
+
+***IMPORTANTE:*** **El ID del reclamo se genera automático por cada reclamo, al momento de ingresarlo te muestra el ID asignado al mismo.**
+
+Si queres buscar un reclamo por su ID, ya sea para ver sus datos (GET) o borrarlo del sistema (DELETE) debemos ocupar la siguiente entrada:
+```
+http://localhost:8082/api/reclamos/{id}
+```
+Así se vería la información completa al buscar:
+```
+{
+  "id": 2,
+  "clienteId": 2,
+  "nombreCliente": "María González",
+  "fechaRegistro": "2026-10-10",
+  "asunto": "Programa muy lento",
+  "descripcion": "El programa tardó mucho tiempo en realizar ingresar mi pedido."
+}
+```
+***EN {id} VA EL NÚMERO ID DEL RECLAMO EN CUESTIÓN***
