@@ -1,0 +1,37 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: devolucion
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_tiendamusical
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+    table: fly_away_schema_history_devolucion
+    baseline-version: "0"
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+jwt:
+  secret: laClaveDeLaTiendaDeMusicaEstanLargaLoSuficiente
+
+
+pedidos-service:
+  url: http://localhost:8085/api/pedidos
