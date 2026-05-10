@@ -1,5 +1,6 @@
 # proyecto-tiendaMusical-fullstack1-prueba2
-##Descripción.
+## Descripción.
+
 Creamos una plataforma digital enfocado en un e-commerce de instrumentos musicales, en donde contamos con un login para nuestros usuarios, el cual entregará un token para poder acceder a los distintos endpoints de nuestra aplicación. Es importante mencionar que todos los microservicios tienen un endpoint “/publico”, de esta manera demostrar que los token funcionen correctamente en cada microservicio. 
 Contamos con una base de datos de nuestros clientes, en donde se guardará la información básica de cada cliente que quiera acceder a nuestra tienda, y también con un catálogo con distintos instrumentos musicales.
 Si bien nuestra tienda en un principio fue pensada para tener dos microservicio de “PedidoVenta” y “PedidoArriendo”, en esta versión se utilizó solamente la clase “pedidos” para demostrar cómo es que funciona la conexión entre Cliente y Producto al microservicio, obteniendo de estos el nombre y apellido del cliente, el número de serie,  nombre de producto, su precio, etc. 
