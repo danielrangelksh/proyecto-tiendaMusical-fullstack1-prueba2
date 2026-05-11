@@ -14,7 +14,7 @@ Para empezar se debe abrir la aplicación **Postman** para poder visualizar, agr
 
 ***Se encuentran ordenados según sus puertos***
 1. **auth-Service** -8080  
-2. **clente** -8081  
+2. **cliente** -8081  
 3. **reclamos** -8082  
 4. **producto** -8083
 5. **servicioTecnico** -8084
@@ -28,7 +28,7 @@ También es importante saber que las credenciales para que la base de datos func
 username: root  
 password: system  
 ```
-Accederemos al apartaddo de **Laragon.MySQL**, daremos click en **consulta**, ingresaremos y ejecutaremos el siguiente script para crear nuestra base de datos:  
+Accederemos al apartado de **Laragon.MySQL**, daremos click en **consulta**, ingresaremos y ejecutaremos el siguiente script para crear nuestra base de datos:  
 ```
 CREATE DATABASE db_tiendamusical;
 ```
@@ -177,7 +177,6 @@ Podremos ver el formato que toma y los datos que trae de la base de datos:
 }
 ```
 ***EN {id} VA EL NÚMERO ID DEL PEDIDO EN CUESTIÓN***
-***PARA ACTUALIZAR EL PEDIDO DEBE OCUPAR EN EL PUT EL MISMO FORMATO QUE SE USA AL MOMENTO DE INGRESARLO***
 
 ***IMPORTANTE:*** **El microservicio pedidos tampoco puede ser desactivado al momento de ocupar los microservicios que dependen de él.**
 
@@ -201,7 +200,7 @@ Cabe destacar que toda la información que hay que ingresar es importante, a exc
 
 ***IMPORTANTE:*** **El ID del ticket se genera automático por cada ticket, al momento de ingresarlo te muestra el ID asignado al mismo.**
 
-Acá podemos ver como al traer la información de la clase pedidos, esta también trae consigo la información de las clases clientes y productos. Si queres buscar un ticket de sercivio técnico por su ID, ya sea para ver sus datos (GET), actualizarlos (PUT) o borrarlo del sistema (DELETE) debemos ocupar la siguiente entrada:
+Acá podemos ver como al traer la información de la clase pedidos, esta también trae consigo la información de las clases clientes y productos. Si queres buscar un ticket de sercivio técnico por su ID, ya sea para ver sus datos (GET) o borrarlo del sistema (DELETE) debemos ocupar la siguiente entrada:
 
 ```
 http://localhost:8084/api/servicioTecnico/{id}
@@ -222,7 +221,6 @@ Podemos ver el formato que trae de la base de datos:
 }
 ```
 ***EN {id} VA EL NÚMERO ID DEL TICKET DE SERVICIO TÉCNICO EN CUESTIÓN***
-***PARA ACTUALIZAR EL PEDIDO DEBE OCUPAR EN EL PUT EL MISMO FORMATO QUE SE USA AL MOMENTO DE INGRESARLO***
 
 ## Devolución.
 Con la siguiente entrada podremos visualizar con un GET el listado total de todos los tickets de devolución ingresados y también podremos ingresar un nuevo ticket con un POST en la base de datos: 
