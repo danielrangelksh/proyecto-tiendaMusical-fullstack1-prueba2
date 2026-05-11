@@ -32,6 +32,14 @@ También es importante saber que las credenciales para que la base de datos func
 username: root  
 password: system  
 ```
+En los microservicios también debe estar el mismo username y la misma password en el archivo **application.yml**
+```
+datasource:
+  url: jdbc:mysql://localhost:3306/db_tiendamusical
+  username: root
+  password: system
+  driver-class-name: com.mysql.cj.jdbc.Driver
+```
 Accederemos al apartado de **Laragon.MySQL**, daremos click en **consulta**, ingresaremos y ejecutaremos el siguiente script para crear nuestra base de datos:  
 ```
 CREATE DATABASE db_tiendamusical;
