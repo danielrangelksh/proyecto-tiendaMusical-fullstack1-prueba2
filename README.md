@@ -1,4 +1,8 @@
 # proyecto-tiendaMusical-fullstack1-prueba2
+Grupo 9.  
+Daniel Rangel Contreras.  
+Alan Alfaro Bettancourt.  
+Christian Pastran Ferrer. 
 ## Descripción.
 
 Creamos una plataforma digital enfocado en un e-commerce de instrumentos musicales, en donde contamos con un login para nuestros usuarios, el cual entregará un token para poder acceder a los distintos endpoints de nuestra aplicación. Es importante mencionar que todos los microservicios tienen un endpoint “/publico”, de esta manera demostrar que los token funcionen correctamente en cada microservicio. 
