@@ -8,7 +8,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/db_tiendamusical
     username: root
-    password:
+    password: system
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 
